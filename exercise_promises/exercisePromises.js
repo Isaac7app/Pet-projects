@@ -2,7 +2,9 @@
 
 // #1) Create a promise that resolves in 4 seconds and returns "success" string
 const promise = new Promise((reslove,reject)=>{
-  setTimeout(reslove,4000,'success')
+  setTimeout(()=>{
+    reslove('success')
+  },4000)
 })
 
 // #2) Run the above promise and make it console.log "success"
@@ -10,7 +12,11 @@ promise.then(resul => console.log(resul))
 
 // #3) Read about Promise.resolve() and Promise.reject(). How can you make
 // the above promise shorter with Promise.resolve() and console loggin "success"
-Promise.resolve(resul);
+const promise = Promise.resolve(
+  setTimeout(()=>{
+    console.log('success')
+  },4000)
+)
 
 
 
@@ -50,7 +56,7 @@ Promise.all(urls.map(url =>{
   console.log(results[0])
   console.log(results[1])
   console.log(results[2])
-}).catch(()=> console.log('errorrr'))
+}).catch(err => console.log('errorrr,something went wrong',err))
 
 
 
