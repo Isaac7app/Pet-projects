@@ -22,3 +22,10 @@ fs.appendFile('./bye.txt', ' here i am added',err =>{
         console.log(err)
     }
 })
+
+fs.unlink('./bye.txt',err=>{
+    if(err){
+        console.log(err)
+    }
+    console.log('inception')
+})
