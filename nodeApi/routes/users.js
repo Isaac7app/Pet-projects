@@ -15,7 +15,7 @@ router.post('/',(req,res)=>{
 
     users.push({...user, id: uuidv4()});
 
-    res.send(`User with the name ${user.firstName} added to the database!`);
+    res.send(`Success! ${user.firstName} added`);
 })
 
 router.get('/:id',(req,res)=>{
@@ -31,7 +31,7 @@ router.delete('/:id',(req,res)=>{
 
     users = users.filter((user)=> user.id !== id);
 
-    res.send(`User with the id ${id} has been deleted from the database.`)
+    res.send(`Sucess! ${id} has been deleted.`)
 
 })
 

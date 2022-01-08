@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/users',usersRoutes);
 
 app.get('/',(req,res)=>{
-    res.send('hello from hompage');
+    res.send('HomePage');
 })
 
 app.listen(PORT,()=>{
