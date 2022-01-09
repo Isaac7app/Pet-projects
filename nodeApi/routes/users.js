@@ -1,6 +1,6 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import {createUser } from '../controllers/users.js';
+import {createUser, getUser } from '../controllers/users.js';
 
 
 const router = express.Router();
@@ -9,13 +9,7 @@ let users = [];
 
 router.get('/', createUser)
 
-router.post('/',(req,res)=>{
-    const user = req.body;
-
-    users.push({...user, id: uuidv4()});
-
-    res.send(`Success! ${user.firstName} added`);
-})
+router.post('/', getUser)
 
 router.get('/:id',(req,res)=>{
     const {id} = req.params;
