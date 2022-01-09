@@ -9,6 +9,7 @@ app.use(express.json());
 
 app.use('/users',usersRoutes);
 
+// Root page
 app.get('/',(req,res)=>{
     res.send('Hello from HomePage');
 })
