@@ -23,7 +23,7 @@ router.get('/:id',(req,res)=>{
     console.log(req.params);
 
 
-    const foundUser = users.find((user) => user.id == id);
+    const foundUser = users.find((user) => user.id === id);
 
     res.send(foundUser);
 })
