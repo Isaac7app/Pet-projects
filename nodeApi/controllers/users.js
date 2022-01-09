@@ -1,1 +1,3 @@
-import express from 'express';
+export const createUser = (req,res)=>{
+    res.send(users);
+}
