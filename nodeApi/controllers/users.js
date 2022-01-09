@@ -1,10 +1,12 @@
+import { v4 as uuidv4 } from 'uuid';
+
 let users = [];
 
-export const createUser = (req,res)=>{
+export const getUser = (req,res)=>{
     res.send(users);
 }
 
-export const getUser = (req,res)=>{
+export const createUser = (req,res)=>{
     const user = req.body;
 
     users.push({...user, id: uuidv4()});
