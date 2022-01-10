@@ -1,4 +1,4 @@
-*{
+body{
     padding: 0;
     margin: 0;
 }
@@ -15,4 +15,19 @@
     background-color: red;
     position: relative;
     top: 150px;
+}
+
+#block{
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: relative;
+    top: 130px;
+    left: 480px;
+    animation: block 1s;
+}
+
+@keyframes block{
+    0%{left: 480px;}
+    100%{left: -40px;}
 }
