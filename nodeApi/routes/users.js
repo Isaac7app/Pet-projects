@@ -1,10 +1,10 @@
 import express from 'express';
 
+//Destructured functions from controllers
 import {createUser, getUser, findUserWithId, deleteUser, updateUser } from '../controllers/users.js';
 
 
 const router = express.Router();
-
 
 router.get('/', getUser)
 

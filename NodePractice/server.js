@@ -15,7 +15,7 @@ app.use(express.static(__dirname + '/public'))
 //     req.headers
 //     console.log(req.params)
 //     req.params
-//     res.send('getting root')
+    res.send('getting root')
 // })
 
 
