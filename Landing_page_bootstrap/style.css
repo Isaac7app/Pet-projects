@@ -45,3 +45,7 @@ hr {
     max-width: 65px;
     opacity: 1;  
 }
+
+.buffer{
+    height: 10rem;
+}
