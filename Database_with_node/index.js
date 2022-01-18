@@ -1,6 +1,7 @@
 const express = require('express');
-const mysql = require('mysql');
 const app = express();
+const connection = require('/database');
+
 const PORT = 4000;
 
 app.get('/',(req,res)=>{
