@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const connection = require('./database');
+const connection = require('./database.js');
 
 const PORT = 4000;
 
 app.get('/',(req,res)=>{
-    
+
     res.send('working!')
 })
 

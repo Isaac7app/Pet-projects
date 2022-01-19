@@ -1,7 +1,7 @@
 const database = require('mime-db');
 const mysql = require('mysql');
-const knex = require('knex')
-const mysql = knex({
+
+const connection = mysql.createConnection({
     client: 'mysql',
     connection: {
       host : '127.0.0.1',
@@ -22,4 +22,4 @@ const mysql = knex({
 //     password: 'Youngatm89'
 // })
 
-export default mysql;
+module.exports = connection;
