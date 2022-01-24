@@ -22,9 +22,15 @@ class App extends Component {
   }
 
 onButtonSubmit = ()=>{
-  this.setState({imageUrl: this.state.input});
-  console.log('click')
-  app.models.predict('53e1df302c079b3db8a0a36033ed2d15', this.state.input)
+  console.log('click');
+  app.models.predict('53e1df302c079b3db8a0a36033ed2d15', 'https://www.clarifai.com/models/face-detection',
+  function(response) {
+    console.log(response)
+  },
+   function(err){
+
+   }
+   )
 }
 
   render(){
