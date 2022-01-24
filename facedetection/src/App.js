@@ -13,12 +13,16 @@ class App extends Component {
       input: '',
     }
   }
+
+  onInputChange = (event)=>{
+    console.log(event)
+  }
   render(){
     return (
       <div className="App">
        <Navigation />
        <Rank />
-       <ImageLinkForm />
+       <ImageLinkForm onInputChange={this.onInputChange}/>
       </div>
     );
   }
