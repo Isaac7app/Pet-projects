@@ -3,8 +3,11 @@ import Navigation from './components/Navigation/Navigation';
 import ImageLinkForm from './components/Navigation/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Navigation/Rank/Rank'
 import { Component } from 'react/cjs/react.production.min';
+import Clarifai from 'clarifai';
 
-
+const app = new Clarifai.App({
+  apikey:'2a66697514b74db485dbe49460cfa270'
+});
 
 class App extends Component {
   constructor() {
@@ -19,7 +22,9 @@ class App extends Component {
   }
 
 onButtonSubmit = ()=>{
+  this.setState({imageUrl: this.state.input});
   console.log('click')
+  app.models.predict('53e1df302c079b3db8a0a36033ed2d15', this.state.input)
 }
 
   render(){
