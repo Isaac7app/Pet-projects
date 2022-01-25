@@ -21,19 +21,41 @@ class App extends Component {
     console.log(event.target.value)
   }
 
-onButtonSubmit = ()=>{
-  console.log('click');
-  app.models.predict('53e1df302c079b3db8a0a36033ed2d15',
-   'https://www.clarifai.com/models/face-detection')
-   .then(
-  function(response) {
-    console.log(response)
-  },
-   function(err){
+  onButtonSubmit = () => {
+    this.setState({imageUrl: this.state.input});
+    app.models
+      .predict(
+        Clarifai.FACE_DETECT_MODEL,
+        this.state.input)
+      .then(response => {
+        console.log('hi', response)
+        if (response) {
+          fetch('http://localhost:3000/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count}))
+            })
 
-   }
-   )
-}
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      })
+      .catch(err => console.log(err));
+  }
+
+  onRouteChange = (route) => {
+    if (route === 'signout') {
+      this.setState({isSignedIn: false})
+    } else if (route === 'home') {
+      this.setState({isSignedIn: true})
+    }
+    this.setState({route: route});
+  }
 
   render(){
     return (
